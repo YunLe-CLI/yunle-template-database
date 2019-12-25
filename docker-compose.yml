@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+
+  mongo:
+    image: mongo
+    container_name: yunle-database-mongo
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - /mnt/www/db/mongodb/data:/data/db
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 12345678
+
+#  mongo-express:
+#    image: mongo-express
+#    restart: always
+#    ports:
+#      - 8081:8081
+#    environment:
+#      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+#      ME_CONFIG_MONGODB_ADMINPASSWORD: 12345678
+
+  redis:
+    image: redis:5.0.4-alpine
+    container_name: yunle-database-redis
+    restart: always
+    ports:
+      - 6379:6379
+    volumes:
+      - /mnt/www/db/redis/data:/data
+      - /mnt/www/db/redis.conf:/home/redis.conf:ro
+      - /etc/localtime:/etc/localtime:ro
+    command: redis-server /home/redis.conf
+    # command:  redis-server --requirepass 12345678
+

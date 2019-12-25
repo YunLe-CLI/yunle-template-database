@@ -1,0 +1,23 @@
+{
+  "name": "db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "upload-oss.js",
+  "scripts": {
+    "start": "npm install && node upload-oss.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.coding.net/hexiao-o/db.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ali-oss": "^6.1.1",
+    "archiver": "^3.0.0",
+    "co": "^4.6.0",
+    "moment": "^2.24.0",
+    "node-schedule": "^1.3.2",
+    "shelljs": "^0.8.3"
+  }
+}
